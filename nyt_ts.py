@@ -26,7 +26,7 @@ states = [
  
 all_results = {}
 for state in states:
-    print(f'Downloading {state}')
+    #print(f'Downloading {state}')
     formatted_state = state.lower().replace(' ', '-')
 
     # Scrape data for this state and store as a dict
