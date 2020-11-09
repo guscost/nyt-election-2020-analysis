@@ -17,7 +17,7 @@ jobs:
     - name: Fetch latest data
       run: |-
         pip3 install pandas requests matplotlib
-        python nyt_ts.py
+        python3 nyt_ts.py
     - name: Commit and push if it changed
       run: |-
         git config user.name "Automated"
