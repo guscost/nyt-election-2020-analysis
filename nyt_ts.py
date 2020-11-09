@@ -1,7 +1,8 @@
 import pandas as pd
+import json
 import pprint
 import requests
- 
+
 def collapse_results_by_party(results_by_candidate, candidates):
     results_by_party = {}
     for candidate, count in iter(results_by_candidate.items()):
@@ -33,9 +34,8 @@ for state in states:
     all_results[formatted_state] = state_response.json()
     
     # Archive the response JSON too
-    with open(f'scrapes/{formatted_state}.json', 'wb') as f:
-        f.write(state_response.content)
-
+    with open(f'scrapes/{formatted_state}.json', 'w') as f:
+        f.write(json.dumps(state_response.json(), indent=4))
 # python3-ported but otherwise basically verbatim from 
 # https://threadreaderapp.com/thread/1325592112428163072.html
 records = []
