@@ -12,9 +12,10 @@ jobs:
     steps:
     - name: Check out this repo
       uses: actions/checkout@v2
+      with:
+        ref: 'master'
     - name: Fetch latest data
       run: |-
-        git checkout master
         pip3 install pandas requests matplotlib
         python nyt_ts.py
     - name: Commit and push if it changed
